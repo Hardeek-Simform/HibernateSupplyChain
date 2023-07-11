@@ -7,6 +7,7 @@ import com.simform.supplychain.repository.CompanyRepository;
 import com.simform.supplychain.repository.CompanyStatisticsRepository;
 import com.simform.supplychain.repository.SupplierRepository;
 import com.simform.supplychain.service.SupplierInf;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,7 @@ public class SupplierServiceImpl implements SupplierInf {
         return null;
     }
 
+    @Transactional
     @Override
     public Suppliers addSupplier(Suppliers suppliers, int cid) {
         Optional<Company> companyRepoById = companyRepository.findById(cid);
@@ -78,6 +80,7 @@ public class SupplierServiceImpl implements SupplierInf {
         }
     }
 
+    @Transactional
     @Override
     public void deleteSupplierById(int cid, int sid) {
         Optional<Suppliers> optionalSupplier = supplierRepository.findById(sid);

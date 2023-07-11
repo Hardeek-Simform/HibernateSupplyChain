@@ -100,6 +100,7 @@ public class CompanyServiceImpl implements CompanyServiceInf {
         }
     }
 
+    @Transactional
     @Override
     public void deleteCompanyById(int id) {
         Optional<Company> optionalCompany = companyRepository.findById(id);
